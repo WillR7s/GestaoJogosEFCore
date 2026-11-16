@@ -1,12 +1,11 @@
 ﻿//*Program=> Service => Repositories =>Models + context
 
-
 using System.Globalization;
-using GestaoJogosDB.Data;
-using GestaoJogosDB.Models;
-using GestaoJogosDB.Repositories;
-using GestaoJogosDB.Services;
+using GestaoJogosEFCore.Data;
 using Microsoft.EntityFrameworkCore;
+using GestaoJogosEFCore.Repositories;
+using GestaoJogosEFCore.Repositories.Services;
+using GestaoJogosEFCore.Models;
 
 // Defini a variável com os dados para realizar login no servidor do SQL SERVER
 string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=DB_GestaoJogos;Integrated Security=True;Encrypt=False;TrustServerCertificate=True;";
@@ -207,7 +206,7 @@ void CadastrarDesenvolvedora()
     string pais = Console.ReadLine() ?? "";
 
     // A desenvolvedora é gravada antes de poder ser associada a um jogo.
-    service.CadastrarDesenvolvedora(new Desenvolvedora
+    service.CadastrarDesenvolvedoras(new Desenvolvedora
     {
         Nome = nome,
         Pais = pais
@@ -268,7 +267,7 @@ Jogo LerDadosJogo()
     decimal preco = decimal.Parse(valor, CultureInfo.InvariantCulture);
 
     // Cria a entidade que será recebida pelo serviço e pelo repositório.
-    return new Jogo
+    return new GestaoJogosEFCore.Models.Jogo
     {
         IdDesenvolvedora = idDesenvolvedora,
         Nome = nome,
