@@ -9,7 +9,7 @@ using GestaoJogosDB.Services;
 using Microsoft.EntityFrameworkCore;
 
 // Defini a variável com os dados para realizar login no servidor do SQL SERVER
-string connectionString = "Server=SEU_SERVIDOR;Database=SEU_BANCO_DADOS;Integrated Security=True;Encrypt=False;TrustServerCertificate=True;";
+string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=DB_GestaoJogos;Integrated Security=True;Encrypt=False;TrustServerCertificate=True;";
 
 // DbContextOptionsBuilder reúne as configurações usadas pelo contexto.
 // UseSqlServer seleciona o provedor do SQL Server e recebe a connection string.
